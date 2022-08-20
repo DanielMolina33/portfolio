@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    color: #ffffff !important;
+    font-family: Rubik, Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --nav: #212336;
+    --main: #23263a;
+    --card: #2b2d41;
+    --dark: #1c1e31;
+    --red: #fe4956;
+    --grey: #404251;
+    --grey-lighter: #cccccc;
+    --cursor-height: calc(1.575rem + 3.9vw);
+}
+
+html, body {
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Bg colors */
+
+.bg-nav {
+    background-color: var(--nav);
+}
+
+.bg-main {
+    background-color: var(--main);
+}
+
+.bg-card {
+    background-color: var(--card);
+}
+
+.bg-red {
+    background-color: var(--red) !important;
+}
+
+
+/* Text colors */
+
+.txt-red {
+    color: var(--red) !important;
+}
+
+.txt-grey {
+    color: var(--grey) !important;
+}
+
+.txt-grey--lighter {
+    color: var(--grey-lighter) !important;
+}
+
+.txt-dark {
+    color: var(--dark) !important;
+}
+
+/* Rules */
+
+
+.content {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+section {
+    scroll-snap-align: start;
+}
+
+main {
+    height: 100%;
+}
+
+.vh-100 {
+    height: 100vh !important;
+    overflow: auto;
+}
+
+.vh-100--nav {
+    height: calc(100vh - 84px) !important;
+    overflow: auto;
+}
+
+.fs-small {
+    font-size: .85rem;
+}
+
+.txt-line::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 15%;
+    height: 5px;
+    background-color: var(--red);
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.icon--small {
+    width: 16px;
+    height: 16px;
+}
+
+.icon--large {
+    width: 48px;
+    height: 48px;
+}
+
+.no-resize {
+    resize: none;
+}
+
+.form-control:focus {
+    background-color: var(--card);
+}
+
+.form-control {
+    height: 4.5rem !important;
+}
+
+.form-control::placeholder {
+    color: var(--dark);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+textarea::placeholder {
+    line-height: 3.5rem !important;
+}
+
+.w-25--custom {
+    width: 25%;
+}
+
+.w-50--custom {
+    width: 50%;
+}
+
+.w-75--custom {
+    width: 75%;
+}
+
+#page2 {
+    overflow-y: auto;
+}
+
+#page2::-webkit-scrollbar {
+    display: none;
+}
+
+.paginator {
+    right: 10%;
+}
+
+.paginator-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.paginator-links li {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    border: 2px solid var(--red);
+    background-color: transparent;
+    transition: all linear 200ms;
+}
+
+.paginator-links li:not(:last-child) {
+    margin-bottom: 70px;
+}
+
+.paginator-links li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 1px;
+    height: 70px;
+    background-color: var(--grey-lighter);
+}
+
+.paginator-links .active {
+    background-color: var(--red);
+}
+
+.cursor {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 0;
+    padding-right: 10px;
+    animation: typing 5s steps(30, end) forwards;
+}
+
+.cursor::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-right: 1.5px solid var(--red);
+    animation: blinkCursor 1s steps(1, start) infinite
+}
+
+@keyframes typing {
+    to { max-width: 100%; }
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent }
+    50% { border-color: var(--red); }
+}
+
+@media screen and (max-width: 768px) {
+    .paginator {
+        display: none !important;
+    }
+
+    .btn--100 {
+        width: 100% !important;
+    }
+
+    .cursor {
+        white-space: normal;
+        animation: initial;
+        max-width: 100%;
+    }
+
+    .cursor::after {
+        display: none;
+        animation: initial;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .paginator {
+        display: none !important;
+    }
+
+    .d-block--custom {
+        display: none;
+    }
+
+    .w-25--custom {
+        width: 100% !important;
+    }
+
+    .w-50--custom {
+        width: 100% !important;
+    }
+
+    .w-75--custom {
+        width: 100% !important;
+    }
+}
